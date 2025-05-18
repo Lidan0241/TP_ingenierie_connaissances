@@ -1,0 +1,11 @@
+{
+  "nodes": {
+    "Frodo": "Character",
+    "Gandalf": "Wizard",
+    "Mordor": "Location"
+  },
+  "relationships": [
+    ["Frodo", "Gandalf", "FRIENDS_WITH", {"since": "3018"}],
+    ["Frodo", "Mordor", "TRAVELS_TO", {"purpose": "destroy_ring"}]
+  ]
+}

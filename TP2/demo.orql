@@ -1,0 +1,29 @@
+# Création de quelques nœuds et relations
+CREATE (:Character {name: "Frodo"})
+CREATE (:Character {name: "Sam"})
+CREATE (:Character {name: "Gandalf"})
+CREATE (:Character {name: "Gollum"})
+CREATE (:Character {name: "Saruman"})
+CREATE (:Location {name: "The Shire"})
+CREATE (:Location {name: "Mordor"})
+
+CREATE [:FRIENDS_WITH] FROM "Frodo" TO "Sam"
+CREATE [:FRIENDS_WITH] FROM "Sam" TO "Gandalf"
+CREATE [:MENTORS] FROM "Gandalf" TO "Frodo"
+CREATE [:KNOWS_WAY] FROM "Gollum" TO "Mordor"
+CREATE [:BETRAYS] FROM "Saruman" TO "Gandalf"
+CREATE [:TRAVELS_TO] FROM "Frodo" TO "Mordor"
+CREATE [:LIVES_IN] FROM "Frodo" TO "The Shire"
+
+# CLUSTER (Louvain)
+CLUSTER
+
+# TAG_HUBS (centralité)
+TAG_HUBS
+
+# Vérification
+READ (:Clustered) WHERE name = "Frodo"
+READ (:Hubs)
+
+# Composantes connexes
+CONNECTED_COMPONENTS
